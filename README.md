@@ -19,7 +19,7 @@ A modern, real-time message board where anyone can post anonymous messages, like
 - 📧 Contact form (connected to EmailJS)
 - 🧩 Responsive, mobile-friendly design
 - 🎨 Styled with Tailwind CSS
-- 📄 GitHub Pages deploy-ready
+
 
 ---
 
@@ -40,12 +40,11 @@ Animations were introduced to create a sense of warmth and modernity, and suppor
 ## 🧠 Wiki & Credits
 
 📘 Project Wiki:  
-👉 [https://github.com/SusanneDD/public-messageboard/wiki](https://github.com/SusanneDD/public-messageboard/wiki)
+👉 https://github.com/SusanneDD/fe24-versionshantering-gritsquare-Solo.wiki.git
 
 ### Wiki Includes:
 
 - 🧾 **Credits** – All referenced code, packages, and icons
-- 🗺️ **Sketch/Wireframe** – Visual mockup of layout and user flow (as PNG)
 - 🔧 Setup Instructions
 - 🎨 Theme inspiration & animation effects
 - 📝 Dev notes
@@ -61,14 +60,6 @@ Animations were introduced to create a sense of warmth and modernity, and suppor
 - **Form Handling:** EmailJS
 - **Animations:** anime.js
 - **Icons:** lucide-react
-- **Deployment:** GitHub Pages
 
 ---
 
-## 📦 Setup
-
-```bash
-git clone https://github.com/SusanneDD/public-messageboard
-cd public-messageboard
-npm install
-npm run dev
