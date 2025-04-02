@@ -64,7 +64,7 @@ export default function MessageList({ refresh }) {
       );
 
       anime({
-        targets: likeRefs.current[id],
+        targets: likeRefs.current[`${id}-like`],
         scale: [1, 1.4, 1],
         duration: 500,
         easing: 'easeOutElastic(1, .5)',
@@ -72,6 +72,42 @@ export default function MessageList({ refresh }) {
     } catch (err) {
       console.error('Failed to update likes', err);
     }
+  };
+
+  const handleDislike = async (id, currentLikes) => {
+    const newLikes = Math.max(0, currentLikes - 1);
+    try {
+      await fetch(
+        `https://messageboard-21842-default-rtdb.europe-west1.firebasedatabase.app/messages/${id}.json`,
+        {
+          method: "PATCH",
+          body: JSON.stringify({ likes: newLikes }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+    } catch (error) {
+      console.error("Error updating dislikes:", error);
+    }
+    setMessages((prev) =>
+      prev.map((msg) =>
+        msg.id === id ? { ...msg, likes: newLikes } : msg
+      )
+      
+    );
+    anime({
+      targets: likeRefs.current[`${id}-dislike`],
+      keyframes: [
+        { translateX: -3, rotate: "-3deg" },
+        { translateX: 3, rotate: "3deg" },
+        { translateX: -3, rotate: "-3deg" },
+        { translateX: 0, rotate: "0deg" },
+        { scale: [1, 0.9, 1.1, 1] },
+      ],
+      duration: 600,
+      easing: "easeOutElastic(1, .5)",
+    });
   };
 
   const handleDeleteMessage = async (id) => {
@@ -163,7 +199,18 @@ export default function MessageList({ refresh }) {
             <div className="mt-2 flex justify-between items-center">
               <div className="space-x-2">
                 <button
-                  ref={(el) => (likeRefs.current[msg.id] = el)}
+                  ref={(el) => (likeRefs.current[`${msg.id}-dislike`] = el)}
+                  onClick={() => handleDislike(msg.id, msg.likes || 0)}
+                  className="text-sm px-2 py-1 bg-gray-500 text-white rounded hover:bg-gray-600"
+                >
+                  💔 {msg.likes || 0}
+                </button>
+
+
+
+                
+                <button
+                  ref={(el) => (likeRefs.current[`${msg.id}-like`] = el)}
                   onClick={() => handleLike(msg.id, msg.likes || 0)}
                   className="text-sm px-2 py-1 bg-pink-500 text-white rounded hover:bg-pink-600"
                 >
