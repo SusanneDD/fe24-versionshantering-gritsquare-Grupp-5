@@ -63,3 +63,6 @@ Animations were introduced to create a sense of warmth and modernity, and suppor
 
 ---
 
+To visit the site: 
+
+https://clinquant-cocada-c9cf61.netlify.app/
