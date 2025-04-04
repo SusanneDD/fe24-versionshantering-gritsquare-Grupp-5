@@ -40,7 +40,7 @@ Animations were introduced to create a sense of warmth and modernity, and suppor
 ## 🧠 Wiki & Credits
 
 📘 Project Wiki:  
-👉 https://github.com/SusanneDD/fe24-versionshantering-gritsquare-Solo.wiki.git
+👉 https://github.com/SusanneDD/fe24-versionshantering-gritsquare-Grupp-5.wiki.git
 
 ### Wiki Includes:
 
